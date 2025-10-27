@@ -5,7 +5,6 @@
 <h1>Профіль користувача: {{ user.name }}</h1>
 
 <ul>
-  <li><strong>Email:</strong> {{ user.email }}</li>
   <li><strong>Вік:</strong> {{ user.age }}</li>
   <li><strong>Зріст:</strong> {{ user.height }} см</li>
   <li><strong>Вага:</strong> {{ user.weight }} кг</li>
@@ -16,3 +15,4 @@
 
 <a href="{{ url_for('index') }}"><- Назад на головну</a>
 {% endblock %}
+
