@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<h1>Index Page</h1>
+
+<ul>
+  {% for user in users %}
+  <li>
+    <a href="{{ url_for('user_profile', user_id=user.id) }}">
+      {{ user.name }}
+    </a>
+    - {{ user.gender }} - {{ user.weight }} кг - {{ user.height }} см - {{ user.age }} років
+  </li>
+  {% endfor %}
+</ul>
+
+<h3>Новий користувач</h3>
+<form action="{{ url_for('index') }}" method="post">
+  <input type="text" name="name" placeholder="Ім'я" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="password_hash" placeholder="Пароль" required>
+  <input type="number" name="age" placeholder="Вік" required>
+  <input type="number" step="0.1" name="height" placeholder="Зріст (см)" required>
+  <input type="number" step="0.1" name="weight" placeholder="Вага (кг)" required>
+
+  <label for="gender">Стать:</label>
+  <select name="gender" id="gender" required>
+    <option value="Чоловік">Чоловік</option>
+    <option value="Жінка">Жінка</option>
+  </select>
+
+  <input type="submit" value="Створити">
+</form>
+
+{% endblock %}

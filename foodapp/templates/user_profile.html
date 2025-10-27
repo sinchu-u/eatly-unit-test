@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Профіль {{ user.name }}{% endblock %}
+
+{% block content %}
+<h1>Профіль користувача: {{ user.name }}</h1>
+
+<ul>
+  <li><strong>Email:</strong> {{ user.email }}</li>
+  <li><strong>Вік:</strong> {{ user.age }}</li>
+  <li><strong>Зріст:</strong> {{ user.height }} см</li>
+  <li><strong>Вага:</strong> {{ user.weight }} кг</li>
+  <li><strong>Стать:</strong> {{ user.gender }}</li>
+</ul>
+
+<p><strong>Розрахована добова норма калорій:</strong> {{ calories }} ккал</p>
+
+<a href="{{ url_for('index') }}"><- Назад на головну</a>
+{% endblock %}
